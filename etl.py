@@ -86,13 +86,13 @@ def process_log_data(spark, input_data, output_data):
 
     # extract columns for users table
     print("Extracting user_table")
-    user_table = df.select("userId", "firstName", "lastName", "gender", "level")
+    user_table = df.select("userId", "firstName", "lastName", "gender", "level").dropDuplicates()
     user_table.createOrReplaceTempView('users')
     print("user_table extracted")
     
     
     # write users table to parquet files
-    user_table.write.parquet(os.path.join(output_data, 'users/users.parquet'), 'overwrite')
+    user_table.write.parquet(os.path.join(output_data, 'users/users.parquet'), 'append')
     print("user parquet completed")
 
     # create timestamp column from original timestamp column
@@ -143,14 +143,14 @@ def process_log_data(spark, input_data, output_data):
         col('log_df.userAgent').alias('user_agent'),
         year('log_df.datetime').alias('year'),
         month('log_df.datetime').alias('month')) \
-        .withColumn('songplay_id', monotonically_increasing_id())
+        .withColumn('songplay_id', monotonically_increasing_id()).dropDuplicates()
     
     songplays_table.createOrReplaceTempView('songplays')
     print("songplays created")
 
     # write songplays table to parquet files partitioned by year and month
     songplays_table.write.partitionBy('year', 'month').parquet(
-        os.path.join(output_data,'songplays.parquet'), 'overwrite')
+        os.path.join(output_data,'songplays.parquet'), 'append')
     print("songplays.parquet completed")
 
 def main():
@@ -159,7 +159,7 @@ def main():
 #   output_data = "home/workspace/songs/"
     output_data = "s3a://songdb/"
     
-    #process_song_data(spark, input_data, output_data)    
+    process_song_data(spark, input_data, output_data)    
     process_log_data(spark, input_data, output_data)
 
 
