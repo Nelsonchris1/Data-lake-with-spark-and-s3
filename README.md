@@ -18,8 +18,8 @@ Both datasets have json extentions
 * `Python3`
 * `Spark`
 * > Access_key_id = ***********
-  > Acess_secret_key = ********
-  > NOTE!! Dont make this public, always hash your key and secret key wehn upoading to a public repository
+* > Acess_secret_key = ********
+> NOTE!! Dont make this public, always hash your key and secret key wehn upoading to a public repository
 
 ## Data Model/Schema 
 The table schema adopted here is the start table with Facts and dimension table as follows, 
