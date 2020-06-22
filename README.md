@@ -32,6 +32,8 @@ The table schema adopted here is the start table with Facts and dimension table 
 ### Fact Table    
 1. `songplays` - records in log data assosicated with songs plays i.e records with page `Next Song`
     * songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+    
+<img src="star_schema_photo.jpg" alt="drawing" width="400"/>
 
 
 ## Project Template
