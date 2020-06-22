@@ -19,6 +19,7 @@ Both datasets have json extentions
 *  Spark
 *  AWS credentials 
    > Access_key_id = ***********
+   >
    > Acess_secret_key = ********
 > NOTE!! Dont make this public, always hash your key and secret key when upoading to a public repository
 
