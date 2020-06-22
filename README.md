@@ -15,10 +15,11 @@ Both datasets have json extentions
 
 
 ## Requirements 
-* `Python3`
-* `Spark`
-* > Access_key_id = ***********
-* > Acess_secret_key = ********
+*  Python3
+*  Spark
+*  AWS credentials 
+   > Access_key_id = ***********
+   > Acess_secret_key = ********
 > NOTE!! Dont make this public, always hash your key and secret key when upoading to a public repository
 
 ## Data Model/Schema 
@@ -52,9 +53,9 @@ The table schema adopted here is the start table with Facts and dimension table 
 
 ##### Partitioned By
 Three tables contained partitions
-* `songs` table was partitioned by *year and *artist_id
-* `time`  table was partitioned by *year and *month
-* `songplays` table was partitioned by *year and *month
+* `songs` table was partitioned by **year** and **artist_id**
+* `time`  table was partitioned by **year** and **month**
+* `songplays` table was partitioned by **year** and **month**
 
 
 ## Project Template
