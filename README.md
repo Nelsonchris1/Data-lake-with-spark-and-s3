@@ -34,7 +34,7 @@ The table schema adopted here is the start table with Facts and dimension table 
 3. `artists` - artist in music database(resides in song database)
     * artist_id, name, location, latitude, longitude
     
-4. time - timestamps of records in songplays broken down in units (resides in log database)
+4. `time` - timestamps of records in songplays broken down in units (resides in log database)
     * start_time , hour, day, week, month, year, weekday
     
 ### Fact Table    
@@ -42,6 +42,19 @@ The table schema adopted here is the start table with Facts and dimension table 
     * songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
     
 <img src="star_schema_photo.jpg" alt="drawing" width="400"/>
+
+## Table Info
+
+##### Save mode and duplicates
+*  Both dimension and fact tables were created with duplicate values dropped. 
+* `songplays` and `users` table were written with the save mode append
+* `songs` , `artist`,  `time` table were written with the save mode overwrite
+
+##### Partitioned By
+Three tables contained partitions
+* `songs` table was partitioned by *year and *artist_id
+* `time`  table was partitioned by *year and *month
+* `songplays` table was partitioned by *year and *month
 
 
 ## Project Template
