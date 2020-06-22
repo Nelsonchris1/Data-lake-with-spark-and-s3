@@ -13,6 +13,14 @@ The datasets are extracted from an s3 buckekts. Here are the links for each of t
 
 Both datasets have json extentions
 
+
+## Requirements 
+* `Python3`
+* `Spark`
+* > Access_key_id = ***********
+  > Acess_secret_key = ********
+  > NOTE!! Dont make this public, always hash your key and secret key wehn upoading to a public repository
+
 ## Data Model/Schema 
 The table schema adopted here is the start table with Facts and dimension table as follows, 
 
